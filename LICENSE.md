@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (C) 2020, Telnyx, Inc. <support@telnyx.com>
 Copyright (C) 2020, Twilio, Inc. <help@twilio.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

@@ -1,7 +1,7 @@
 # Authors
 
 We'd like to thank the following people who have contributed to the
-`twilio-python` repository.
+`telnyx-twexit-python` repository.
 
 - Adam Ballai <adam@blackacid.org>
 - Alex Brinsmead <alex.brinsmead@dataloft.com>

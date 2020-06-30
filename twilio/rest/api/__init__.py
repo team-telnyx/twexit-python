@@ -21,7 +21,7 @@ class Api(Domain):
         """
         super(Api, self).__init__(twilio)
 
-        self.base_url = 'https://api.twilio.com'
+        self.base_url = 'https://api.telnyx.com'
 
         # Versions
         self._v2010 = None

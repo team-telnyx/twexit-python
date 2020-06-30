@@ -21,9 +21,9 @@ from twilio import __version__
 
 # -- Project information -----------------------------------------------------
 
-project = 'twilio-python'
-copyright = '2019, Twilio'
-author = 'Twilio'
+project = 'telnyx-twexit-python'
+copyright = '2020, Telnyx. 2019, Twilio.'
+author = 'Telnyx'
 
 # The short X.Y version
 version = __version__

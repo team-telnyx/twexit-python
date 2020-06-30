@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 
-Welcome to twilio-python's documentation!
+Welcome to telnyx-twexit-python's documentation!
 =========================================
 
 Release v\ |version|.
@@ -34,4 +34,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
