@@ -36,6 +36,9 @@ setup(
         ':python_version>="3.0"': [
             "requests >= 2.0.0"
         ],
+        "request_validator": [
+            "PyNaCl",
+        ],
     },
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,

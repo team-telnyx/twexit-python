@@ -6,6 +6,15 @@ from six import PY3, string_types
 
 from twilio.compat import izip, urlparse, parse_qs
 
+try:
+    from nacl.encoding import Base64Encoder
+    from nacl.exceptions import BadSignatureError
+    from nacl.signing import VerifyKey
+except ImportError:
+    Base64Encoder = None
+    BadSignatureError = None
+    VerifyKey = None
+
 
 def compare(string1, string2):
     """Compare two strings while protecting against timing attacks
@@ -123,3 +132,55 @@ class RequestValidator(object):
         valid_signature_with_port = compare(self.compute_signature(uri_with_port, params), signature)
 
         return valid_body_hash and (valid_signature or valid_signature_with_port)
+
+
+class TwexitRequestValidator(object):
+
+    def __init__(self, token):
+        self.token = token.encode("utf-8")
+        if VerifyKey is None:
+            raise RuntimeError(
+                "missing required PyNaCl library to verify Twexit signatures. "
+                "`pip install pynacl` to install."
+            )
+        self._verify_key = VerifyKey(self.token, encoder=Base64Encoder)
+
+    def _compute_signed_bytes(self, uri, params):
+        s = uri
+        if params:
+            for k, v in sorted(params.items()):
+                s += k + v
+
+        # compute signature and compare signatures
+        return s.encode("utf-8")
+
+    def validate(self, uri, params, signature):
+        """Compute the signature for a given request
+
+        :param uri: full URI that Twilio requested on your server
+        :param params: post vars that Twilio sent with the request
+        :param utf: whether return should be bytestring or unicode (python3)
+
+        :returns: Boolean indicating if the signature was valid or not
+        """
+        if params is None:
+            params = {}
+
+        parsed_uri = urlparse(uri)
+        uri_with_port = add_port(parsed_uri)
+        uri_without_port = remove_port(parsed_uri)
+
+        signature_bytes = base64.b64decode(signature)
+
+        # compute signature with Ed25519 algorithm
+        #  check signature of uri with and without port,
+        #  since sig generation on back end is inconsistent
+        for uri in [uri_without_port, uri_with_port]:
+            try:
+                self._verify_key.verify(self._compute_signed_bytes(uri, params), signature=signature_bytes)
+            except BadSignatureError:
+                continue
+            else:
+                return True
+
+        return False
