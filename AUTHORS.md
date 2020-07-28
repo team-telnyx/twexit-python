@@ -1,7 +1,7 @@
 # Authors
 
 We'd like to thank the following people who have contributed to the
-`telnyx-twexit-python` repository.
+`twexit-python` repository.
 
 - Adam Ballai <adam@blackacid.org>
 - Alex Brinsmead <alex.brinsmead@dataloft.com>

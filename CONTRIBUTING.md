@@ -1,6 +1,6 @@
-# Contributing to `twilio-python`
+# Contributing to `twexit-python`
 
-We'd love for you to contribute to our source code and to make `twilio-python`
+We'd love for you to contribute to our source code and to make `twexit-python`
 even better than it is today! Here are the guidelines we'd like you to follow:
 
  - [Code of Conduct](#coc)
@@ -15,15 +15,15 @@ even better than it is today! Here are the guidelines we'd like you to follow:
 
 ## <a name="coc"></a> Code of Conduct
 
-Help us keep `twilio-python` open and inclusive. Please be kind to and considerate
-of other developers, as we all have the same goal: make `twilio-python` as good as
+Help us keep `twexit-python` open and inclusive. Please be kind to and considerate
+of other developers, as we all have the same goal: make `twexit-python` as good as
 it can be.
 
 ## <a name="question"></a> Got an API/Product Question or Problem?
 
-If you have questions about how to use `twilio-python`, please see our
+If you have questions about how to use `twexit-python`, please see our
 [docs][docs-link], and if you don't find the answer there, please contact
-[help@twilio.com](mailto:help@twilio.com) with any issues you have.
+[support@telnyx.com](mailto:support@telnyx.com) with any issues you have.
 
 ## <a name="issue"></a> Found an Issue?
 
@@ -52,7 +52,7 @@ You can request a new feature by submitting an issue to our
 consider what kind of change it is:
 
 * **Major Changes** that you wish to contribute to the project should be
-  discussed first with `twilio-python` contributors in an issue or pull request so
+  discussed first with `twexit-python` contributors in an issue or pull request so
   that we can develop a proper solution and better coordinate our efforts,
   prevent duplication of work, and help you to craft the change so that it is
   successfully accepted into the project.
@@ -70,8 +70,8 @@ For large fixes, please build and test the documentation before submitting the
 PR to be sure you haven't accidentally introduced layout or formatting issues.
 
 If you want to help improve the docs at
-[https://www.twilio.com/docs/libraries/python][docs-link], please contact
-[help@twilio.com](mailto:help@twilio.com).
+[developers.telnyx.com][docs-link], please contact
+[support@telnyx.com](mailto:support@telnyx.com).
 
 ## <a name="submit"></a> Submission Guidelines
 
@@ -87,7 +87,7 @@ will increase the chances of your issue being dealt with quickly:
 * **Overview of the Issue** - if an error is being thrown a non-minified stack
   trace helps
 * **Motivation for or Use Case** - explain why this is a bug for you
-* **`twilio-python` Version(s)** - is it a regression?
+* **`twexit-python` Version(s)** - is it a regression?
 * **Operating System (if relevant)** - is this a problem with all systems or
   only specific ones?
 * **Reproduce the Error** - provide an isolated code snippet or an unambiguous
@@ -111,7 +111,7 @@ Before you submit your pull request consider the following guidelines:
 
 * Create your patch, **including appropriate test cases**.
 * Follow our [Coding Rules](#rules).
-* Run the full `twilio-python` test suite (aliased by `make test`), and ensure
+* Run the full `twexit-python` test suite (aliased by `make test`), and ensure
   that all tests pass.
 * Commit your changes using a descriptive commit message.
 
@@ -133,11 +133,11 @@ Before you submit your pull request consider the following guidelines:
     git push origin my-fix-branch
     ```
 
-In GitHub, send a pull request to `twilio-python:master`.
+In GitHub, send a pull request to `twexit-python:master`.
 If we suggest changes, then:
 
 * Make the required updates.
-* Re-run the `twilio-python` test suite to ensure tests are still passing.
+* Re-run the `twexit-python` test suite to ensure tests are still passing.
 * Commit your changes to your branch (e.g. `my-fix-branch`).
 * Push the changes to your GitHub repository (this will update your Pull Request).
 
@@ -162,6 +162,6 @@ There exists a separate `requirements.txt` document under `tests` that contains 
 make test-install test
 ```
 
-[docs-link]: https://www.twilio.com/docs/libraries/python
-[issue-link]: https://github.com/twilio/twilio-python/issues/new
-[github]: https://github.com/twilio/twilio-python
+[docs-link]: https://developers.telnyx.com/docs/v2/messaging/quickstarts/dev-env-setup
+[issue-link]: https://github.com/team-telnyx/twexit-python/issues/new
+[github]: https://github.com/team-telnyx/twexit-python

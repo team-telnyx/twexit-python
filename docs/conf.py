@@ -21,7 +21,7 @@ from twilio import __version__
 
 # -- Project information -----------------------------------------------------
 
-project = 'telnyx-twexit-python'
+project = 'twexit-python'
 copyright = '2020, Telnyx. 2019, Twilio.'
 author = 'Telnyx'
 

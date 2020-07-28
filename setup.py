@@ -8,7 +8,7 @@ with open('twilio/__init__.py') as f:
 with open('README.md') as f:
     long_description = f.read()
 
-# To install the telnyx-twexit library, open a Terminal shell, then run this
+# To install the Telnyx `twexit` library, open a Terminal shell, then run this
 # file by typing:
 #
 # python setup.py install
@@ -17,12 +17,12 @@ with open('README.md') as f:
 # documentation: http://pypi.python.org/pypi/setuptools
 
 setup(
-    name="telnyx-twexit",
+    name="twexit",
     version=__version__,
-    description="Twexit API client and TeXML generator",
+    description="Telnyx Twexit API client",
     author="Telnyx",
     author_email="support@telnyx.com",
-    url="https://github.com/telnyx/telnyx-twexit-python/",
+    url="https://github.com/team-telnyx/twexit-python/",
     keywords=["telnyx", "twexit", "texml", "twilio", "twiml"],
     install_requires=[
         "six",

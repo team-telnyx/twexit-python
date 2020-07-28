@@ -1,190 +1,80 @@
-# twilio-python
+# Telnyx "Twexit" Python Library
 
-[![Build Status](https://secure.travis-ci.org/twilio/twilio-python.png?branch=master)](https://travis-ci.org/twilio/twilio-python)
-[![PyPI](https://img.shields.io/pypi/v/twilio.svg)](https://pypi.python.org/pypi/twilio)
-[![PyPI](https://img.shields.io/pypi/pyversions/twilio.svg)](https://pypi.python.org/pypi/twilio)
-[![Learn OSS Contribution in TwilioQuest](https://img.shields.io/static/v1?label=TwilioQuest&message=Learn%20to%20contribute%21&color=F22F46&labelColor=1f243c&style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAASFBMVEUAAAAZGRkcHBwjIyMoKCgAAABgYGBoaGiAgICMjIyzs7PJycnMzMzNzc3UoBfd3d3m5ubqrhfrMEDu7u739/f4vSb/3AD///9tbdyEAAAABXRSTlMAAAAAAMJrBrEAAAKoSURBVHgB7ZrRcuI6EESdyxXGYoNFvMD//+l2bSszRgyUYpFAsXOeiJGmj4NkuWx1Qeh+Ekl9DgEXOBwOx+Px5xyQhDykfgq4wG63MxxaR4ddIkg6Ul3g84vCIcjPBA5gmUMeXESrlukuoK33+33uID8TWeLAdOWsKpJYzwVMB7bOzYSGOciyUlXSn0/ABXTosJ1M1SbypZ4O4MbZuIDMU02PMbauhhHMHXbmebmALIiEbbbbbUrpF1gwE9kFfRNAJaP+FQEXCCTGyJ4ngDrjOFo3jEL5JdqjF/pueR4cCeCGgAtwmuRS6gDwaRiGvu+DMFwSBLTE3+jF8JyuV1okPZ+AC4hDFhCHyHQjdjPHUKFDlHSJkHQXMB3KpSwXNGJPcwwTdZiXlRN0gSp0zpWxNtM0beYE0nRH6QIbO7rawwXaBYz0j78gxjokDuv12gVeUuBD0MDi0OQCLvDaAho4juP1Q/jkAncXqIcCfd+7gAu4QLMACCLxpRsSuQh0igu0C9Svhi7weAGZg50L3IE3cai4IfkNZAC8dfdhsUD3CgKBVC9JE5ABAFzg4QL/taYPAAWrHdYcgfLaIgAXWJ7OV38n1LEF8tt2TH29E+QAoDoO5Ve/LtCQDmKM9kPbvCEBApK+IXzbcSJ0cIGF6e8gpcRhUDogWZ8JnaWjPXc/fNnBBUKRngiHgTUSivSzDRDgHZQOLvBQgf8rRt+VdBUUhwkU6VpJ+xcOwQUqZr+mR0kvBUgv6cB4+37hQAkXqE8PwGisGhJtN4xAHMzrsgvI7rccXqSvKh6jltGlrOHA3Xk1At3LC4QiPdX9/0ndHpGVvTjR4bZA1ypAKgVcwE5vx74ulwIugDt8e/X7JgfkucBMIAr26ndnB4UCLnDOqvteQsHlgX9N4A+c4cW3DXSPbwAAAABJRU5ErkJggg==)](https://twil.io/learn-open-source)
-
-## Documentation
-
-The documentation for the Twilio API can be found [here][apidocs].
-
-The Python library documentation can be found [here][libdocs].
-
-## Versions
-
-`twilio-python` uses a modified version of [Semantic Versioning](https://semver.org) for all changes. [See this document](VERSIONS.md) for details.
-
-### Migrating from 5.x
-
-Please consult the [official migration guide](https://www.twilio.com/docs/libraries/python/migration-guide) for information on upgrading your application using twilio-python 5.x to 6.x
-
-### Supported Python Versions
-
-This library supports the following Python implementations:
-
-* Python 2.7
-* Python 3.4
-* Python 3.5
-* Python 3.6
-* Python 3.7
-* Python 3.8
+The Telnyx "Twexit" Python library allows users to send messages and validate webhooks with minimal changes to their existing Twilio messaging code.
 
 ## Installation
 
-Install from PyPi using [pip](http://www.pip-installer.org/en/latest/), a
-package manager for Python.
+This SDK can be installed either via `pip`:
 
-    pip install twilio
+```
+pip install twexit
+```
 
-Don't have pip installed? Try installing it, by running this from the command
-line:
+or direct from source by downloading and unzipping the repository from here, then from within the `twexit-python` folder, run
+```
+python setup.py install
+```
 
-    $ curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python
 
-Or, you can [download the source code
-(ZIP)](https://github.com/twilio/twilio-python/zipball/master "twilio-python
-source code") for `twilio-python`, and then run:
+## Account Setup
 
-    python setup.py install
+1. Complete the [Portal Setup](https://developers.telnyx.com/docs/v2/messaging/quickstarts/portal-setup) to set up a messaging-enabled number.
 
-You may need to run the above commands with `sudo`.
+1. Follow the additional [Twexit setup steps](https://developers.telnyx.com/docs/v2/messaging/twexit) to configure webhooks
 
-## Getting Started
+## Usage
 
-Getting started with the Twilio API couldn't be easier. Create a
-`Client` and you're ready to go.
+### Send a message
 
-### API Credentials
-
-The `Twilio` needs your Twilio credentials. You can either pass these
-directly to the constructor (see the code below) or via environment variables.
-
-```python
+```py
 from twilio.rest import Client
 
-account = "ACXXXXXXXXXXXXXXXXX"
-token = "YYYYYYYYYYYYYYYYYY"
-client = Client(account, token)
+# Your organization ID from
+account_sid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# An API key from https://portal.telnyx.com/#/app/api-keys
+auth_token = "KEY0123456789xxxxx"
+
+message = client.messages.create(
+    to="+13125550123",
+    from_="+16165550123",
+    body="Free yourself with Twexit!"
+)
+
+print(message.sid)
 ```
 
-Alternatively, a `Client` constructor without these parameters will
-look for `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` variables inside the
-current environment.
+## Webhook Validation
 
-We suggest storing your credentials as environment variables. Why? You'll never
-have to worry about committing your credentials and accidentally posting them
-somewhere public.
+Twexit uses a fast asymmetric signing algorithm, Ed25519, to avoid issues discovered with SHA-1. To switch from the HMAC-SHA1 signing method, follow these steps:
 
+1. Obtain your account's public key at https://portal.telnyx.com/#/app/account/public-key
 
-```python
-from twilio.rest import Client
-client = Client()
+1. Update your application to use the `TwexitRequestValidator` instead of `RequestValidator`
+
+1. Extract the `X-Twexit-Signature` from the request and provide that when calling the validator.
+
+```py
+from twilio.request_validator import TwexitRequestValidator
+
+public_key = "abcdef123456xxxxx"
+
+validator = TwexitRequestValidator(public_key)
+
+url = 'https://mycompany.com/myapp.php?foo=1&bar=2'
+params = {
+    "MessageSid": "CA1234567890ABCDE",
+    "ApiVersion": "2010-04-01",
+    "Body": "Aloha!",
+    "From": "+13125550123",
+    "To": "+16165550123",
+}
+
+# The X-Twexit-Signature header attached to the request
+twexit_signature = '0/KCTR6DLpKmkAf8muzZqo1nDgQ='
+
+print(validator.validate(url, params, twexit_signature))
 ```
 
-### Specify Region and/or Edge
+## Caveats
 
-To take advantage of Twilio's [Global Infrastructure](https://www.twilio.com/docs/global-infrastructure), specify the target Region and/or Edge for the client:
-
-```python
-from twilio.rest import Client
-
-client = Client(region='au1', edge='sydney')
-```
-A `Client` constructor  without these parameters will also look for `TWILIO_REGION` and `TWILIO_EDGE` variables inside the current environment.
-
-Alternatively, you may specify the edge and/or region after constructing the Twilio client:
-
-```python
-from twilio.rest import Client
-
-client = Client()
-client.region = 'au1'
-client.edge = 'sydney'
-```
-
-This will result in the `hostname` transforming from `api.twilio.com` to `api.sydney.au1.twilio.com`.
-
-### Make a Call
-
-```python
-from twilio.rest import Client
-
-account = "ACXXXXXXXXXXXXXXXXX"
-token = "YYYYYYYYYYYYYYYYYY"
-client = Client(account, token)
-
-call = client.calls.create(to="9991231234",
-                           from_="9991231234",
-                           url="http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient")
-print(call.sid)
-```
-
-### Send an SMS
-
-```python
-from twilio.rest import Client
-
-account = "ACXXXXXXXXXXXXXXXXX"
-token = "YYYYYYYYYYYYYYYYYY"
-client = Client(account, token)
-
-message = client.messages.create(to="+12316851234", from_="+15555555555",
-                                 body="Hello there!")
-```
-
-### Handling Exceptions
-
-```python
-from twilio.rest import Client
-from twilio.base.exceptions import TwilioRestException
-
-account = "ACXXXXXXXXXXXXXXXXX"
-token = "YYYYYYYYYYYYYYYYYY"
-client = Client(account, token)
-
-try:
-  message = client.messages.create(to="+12316851234", from_="+15555555555",
-                                   body="Hello there!")
-except TwilioRestException as e:
-  print(e)
-```
-
-For more descriptive exception types, please see the [Twilio documentation](https://www.twilio.com/docs/libraries/python/usage-guide#exceptions).
-
-### Generating TwiML
-
-To control phone calls, your application needs to output [TwiML][twiml].
-
-Use `twilio.twiml.Response` to easily create such responses.
-
-```python
-from twilio.twiml.voice_response import VoiceResponse
-
-r = VoiceResponse()
-r.say("Welcome to twilio!")
-print(str(r))
-```
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Response><Say>Welcome to twilio!</Say></Response>
-```
-
-### Using a Custom HTTP Client
-
-To use a custom HTTP client with this helper library, please see the [Twilio documentation](https://www.twilio.com/docs/libraries/python/custom-http-clients-python).
-
-### Docker Image
-
-The `Dockerfile` present in this repository and its respective `twilio/twilio-python` Docker image are currently used by Twilio for testing purposes only.
-
-### Getting help
-
-If you need help installing or using the library, please check the [Twilio Support Help Center](https://support.twilio.com) first, and [file a support ticket](https://twilio.com/help/contact) if you don't find an answer to your question.
-
-If you've instead found a bug in the library or would like new features added, go ahead and open issues or pull requests against this repo!
-
-[apidocs]: https://www.twilio.com/docs/api
-[twiml]: https://www.twilio.com/docs/api/twiml
-[libdocs]: https://twilio.github.io/twilio-python
+This SDK currently only provides the capability to send messages via REST and validate webhooks when receiving messages. Configuration of the messaging product and other products (voice, fax) are not yet supported.

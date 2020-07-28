@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 
-Welcome to telnyx-twexit-python's documentation!
+Welcome to twexit-python's documentation!
 =========================================
 
 Release v\ |version|.
